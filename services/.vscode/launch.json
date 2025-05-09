@@ -37,8 +37,18 @@
             "name": "Spring Boot-CustomerApplication<customer>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "com.example.ecommerce.CustomerApplication",
+            "mainClass": "com.example.CustomerApplication",
             "projectName": "customer",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ProductApplication<product>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.ProductApplication",
+            "projectName": "product",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
