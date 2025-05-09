@@ -1,12 +1,10 @@
 package com.example.customer;
 
-import com.example.exception.*;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
-
+import com.example.exception.CustomerNotFoundException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,8 +19,7 @@ public class CustomerService {
   }
 
   public void updateCustomer(CustomerRequest request) {
-    var customer = this.repository.findById(request.id())
-        .orElseThrow(() -> new CustomerNotFoundException(
+    var customer = this.repository.findById(request.id()).orElseThrow(() -> new CustomerNotFoundException(
             String.format("Cannot update customer:: No customer found with the provided ID: %s", request.id())
         ));
     mergeCustomer(customer, request);
@@ -45,7 +42,7 @@ public class CustomerService {
     return  this.repository.findAll()
         .stream()
         .map(this.mapper::fromCustomer)
-        .collect(Collectors.toList());
+        .toList();
   }
 
   public CustomerResponse findById(String id) {

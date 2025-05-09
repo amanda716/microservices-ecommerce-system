@@ -8,6 +8,7 @@ class CustomerApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// This method is intentionally left empty as it's a placeholder for future tests
 	}
 
 }
