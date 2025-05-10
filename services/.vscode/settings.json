@@ -1,0 +1,34 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5434,
+            "driver": "PostgreSQL",
+            "name": "product-service-db",
+            "database": "product",
+            "username": "laithy",
+            "password": "laithy"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5434,
+            "driver": "PostgreSQL",
+            "name": "order-service-db",
+            "database": "order",
+            "username": "laithy",
+            "password": "laithy"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5434,
+            "driver": "PostgreSQL",
+            "name": "payment-service-db",
+            "database": "payment",
+            "username": "laithy",
+            "password": "laithy"
+        }
+    ]
+}
