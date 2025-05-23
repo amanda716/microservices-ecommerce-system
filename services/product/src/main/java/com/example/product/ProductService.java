@@ -18,8 +18,7 @@ public class ProductService {
     private final ProductMapper mapper;
 
     public Integer createProduct(
-            ProductRequest request
-    ) {
+            ProductRequest request) {
         var product = mapper.toProduct(request);
         return repository.save(product).getId();
     }
@@ -36,10 +35,10 @@ public class ProductService {
                 .map(mapper::toProductResponse)
                 .toList();
     }
+
     @Transactional(rollbackFor = ProductPurchaseException.class)
     public List<ProductPurchaseResponse> purchaseProducts(
-            List<ProductPurchaseRequest> request
-    ) {
+            List<ProductPurchaseRequest> request) {
         var productIds = request
                 .stream()
                 .map(ProductPurchaseRequest::productId)
@@ -57,7 +56,8 @@ public class ProductService {
             var product = storedProducts.get(i);
             var productRequest = sortedRequest.get(i);
             if (product.getAvailableQuantity() < productRequest.quantity()) {
-                throw new ProductPurchaseException("Insufficient stock quantity for product with ID:: " + productRequest.productId());
+                throw new ProductPurchaseException(
+                        "Insufficient stock quantity for product with ID:: " + productRequest.productId());
             }
             var newAvailableQuantity = product.getAvailableQuantity() - productRequest.quantity();
             product.setAvailableQuantity(newAvailableQuantity);

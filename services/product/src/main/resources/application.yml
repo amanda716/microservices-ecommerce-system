@@ -3,4 +3,17 @@ spring:
     import: optional:configserver:http://localhost:8888
   application:
     name: product-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/laithy
+    username: laithy
+    password: laithy
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+logging:
+  level:
+    root: INFO
+    org.springframework: DEBUG
+    com.microservices.product: DEBUG
 
